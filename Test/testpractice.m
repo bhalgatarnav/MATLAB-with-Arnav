@@ -21,16 +21,16 @@ clear; clc;
 
 % Reading inputData from the workspace.
 inputData = readmatrix(".txt");
-Addition = 0;
-avg = [];
+
+array1 = [];
 i = 1;
 count = 0;
 % Traversing all the columns in the read matrix from the document.
 for c = 1:size(inputData, 2)
-    Addition = 0;
+
     % Traversing all the rows in the read matrix from the document.
     for r = 1:size(inputData, 1)
-        Addition = Addition + inputData(r,c);
+ 
 
     % Accessing a specific row in the read matrix
     % row = array(rowNumber, :);
@@ -40,14 +40,9 @@ for c = 1:size(inputData, 2)
     % Addition = sum(column);
 
     end
-    avg(i) = Addition/365; 
-    i = i + 1;
 end
-for j = 1:50
-    if avg(j)>43.0
-        count = count + 1;
-    end
-end
+
+% Printing the results of the calculations.
 
 fprintf("ANY TEXT HERE \n");
 disp(avg);
