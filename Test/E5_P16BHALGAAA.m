@@ -14,15 +14,14 @@
 %
 % A BRIEF DESCRIPTION OF WHAT THE SCRIPT OR FUNCTION DOES
 % Accessing a file and extracting the data from it and performing calculations on it.
-% The script reads the data from the file and calculates the average of the number of times the pressure was above 0 in the 70 tests.
+% The script reads the data from the file and calculates the average of the number of times the 
 
 % Clearing the workspace to prevent any errors.
 clear; clc;
 
 % Reading inputData from the workspace.
 inputData = readmatrix("Pressure.txt");
-
-pressure_G0 = zeros(1, 30);
+array1 = zeros(1, 30);
 i = 1;
 count = 0;
 % Columns representing the tests
@@ -36,9 +35,34 @@ for c = 1:size(inputData, 2)
             count = count + 1;
         end
     end
-pressure_G0(i) = count; 
+
+array1(i) = count; 
 i = i + 1;
 count = 0; 
+end
+
+
+% finding the average of the array.
+
+total = 0;
+for i = 1:70
+    total = total +array1(i);
+end
+avg = total/70;
+
+%avg = sumarray1)/70;
+% Printing the results of the calculations.
+
+fprintf(" %0.2f\n", avg);
+
+
+
+
+
+
+
+
+
 
     % Accessing a specific row in the read matrix
     % row = array(rowNumber, :);
@@ -46,24 +70,3 @@ count = 0;
     % Accessing a specific column in the read matrix
     % column = array(:, columnNumber);
     % Addition = sum(column);
-
-end
-total = 0;
-
-% finding the average of the array.
-%for i = 1:70
-%    total = total + array1(i);
-%end
-%avg = total/70;
-avg = sum(pressure_G0)/70;
-
-% finding the standard deviation of the array.
-
-% Printing the results of the calculations.
-
-fprintf("The average of the number of times the pressure was above 0 in the 70 tests is %0.2f\n", avg);
-
-
-% Printing elements from a 2D matrix.
-%fprintf("Comparing 1951 to 1952: there were %i Increases, %i Equal, %i Decreases \n", result(1,1), result(1,2),result(1,3) );
-%fprintf("\nComparing 1952 to 1953: there were %i Increases, %i Equal, %i Decreases \n", result(2,1), result(2,2),result(2,3) );
