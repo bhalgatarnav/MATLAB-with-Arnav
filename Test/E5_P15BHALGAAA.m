@@ -20,28 +20,23 @@
 % Creates a vector that starts at 0, increments by 0.1 and ends at 4.0. 
 % Note that 4.0 is also included in the vector.
 
-t = 0:0.1:4;
+a = linspace(-(2*pi), (2*pi),101);
+b = pi/4;
 
 % Initialise the constants for the use of expression.
-lmax1 = 100;
-lmax2 = 80;
-tau1 = 0.5;
-tau2 = 0.4;
-k1 = 0.6;
-k2 = 0.3;
+x = 2 * sin((a + b )/2).*cos((a - b)/2);
+y = 2 * sin((a + b )/2).*sin((a - b)/2);
 
 % Performing a vector calculation.
 % E.g. - Element-wise multiplication
 % product = A .* B;
 
-L1 = lmax1*(1-exp(-k1*(t+tau1)));
-L2 = lmax2*(1-exp(-k2*(t+tau2)));
 
 % Plotting the graph of the two functions on the same axes.
-plot(t, L1); hold on;
-title("Length of two fish as a function of time:");
-xlabel("Time (years)");
-ylabel("Length of fish (cm)");
-plot(t, L2);
-legend("Fish 1", "Fish 2" );
+plot(a, x); hold on;
+title("Sin function:");
+xlabel("Angle in radians");
+ylabel("value of the function");
+plot(a, y);
+legend("x", "y" );
 hold off;
