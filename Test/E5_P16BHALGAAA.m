@@ -14,7 +14,7 @@
 %
 % A BRIEF DESCRIPTION OF WHAT THE SCRIPT OR FUNCTION DOES
 % Accessing a file and extracting the data from it and performing calculations on it.
-% The script reads the data from the file and calculates the average of the number of times the 
+% The script reads the data from the file and calculates the average of the number of times the sample value goes below zero. 
 
 % Clearing the workspace to prevent any errors.
 clear; clc;
@@ -27,11 +27,11 @@ count = 0;
 % Columns representing the tests
 % Rows representing the samples taken for each test.
 % Traversing all the columns in the read matrix from the document.
-for c = 1:size(inputData, 2)
+for r = 1:size(inputData, 1)
 
     % Traversing all the rows in the read matrix from the document.
-    for r = 1:size(inputData, 1)
-        if (inputData(r, c) > 0)
+    for c = 1:size(inputData, 2)
+        if (inputData(r, c) < 0)
             count = count + 1;
         end
     end
@@ -45,15 +45,16 @@ end
 % finding the average of the array.
 
 total = 0;
-for i = 1:70
+for i = 1:30
     total = total +array1(i);
 end
-avg = total/70;
-
+avg = total/30;
+avg2 = total/70;
 %avg = sumarray1)/70;
 % Printing the results of the calculations.
 
-fprintf(" %0.2f\n", avg);
+fprintf(" The average of 30 tests is: %0.2f\n", avg);
+fprintf(" The average of 30 tests according to files is: %0.2f\n", avg2);
 
 
 
@@ -63,10 +64,3 @@ fprintf(" %0.2f\n", avg);
 
 
 
-
-    % Accessing a specific row in the read matrix
-    % row = array(rowNumber, :);
-    %
-    % Accessing a specific column in the read matrix
-    % column = array(:, columnNumber);
-    % Addition = sum(column);

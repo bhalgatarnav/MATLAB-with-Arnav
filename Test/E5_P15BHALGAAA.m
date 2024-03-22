@@ -13,34 +13,27 @@
 % development and execution.
 %
 % A BRIEF DESCRIPTION OF WHAT THE SCRIPT OR FUNCTION DOES
-% The script or function is used to plot the graph of two functions of sin on the same axes.
+% The script or function is used to plot the graph of two functions of cos on the same axes.
 
-
-% Creates a vector that starts at 0, increments by 0.1 and ends at 4.0. (a = 0:0.1:4)
-% Note that 4.0 is also included in the vector.
 
 % Making the vector with the 101 values starting from -2pi to 2pi.
-a = linspace(-(2*pi), (2*pi),101);
-b = pi/4;
+b = linspace(-(2*pi), (2*pi),101);
+a = pi/4;
 
 % Initialise the constants for the use of expression.
 
-% Performing a vector calculation.
-% E.g. - Element-wise multiplication
-% product = A .* B;
-x = 2 * sin((a + b )/2).*cos((a - b)/2);
-y = 2 * sin((a + b )/2).*sin((a - b)/2);
-
+y = 2.*cos((0.5).*(a+b)).*cos((0.5).*(a-b));
+z = (-2).*sin((0.5).*(a+b)).*sin((0.5).*(a-b));
 
 % Plotting the graph of the two functions on the same axes.
 % Adding the lables to the graph to make it appropriate for the user to understand.
-plot(a, x); hold on;
+plot(b, y); hold on;
 
-title("");
-xlabel("");
-ylabel("");
+title("Plotting the graph of the two Trignometric Functions");
+xlabel("101 values from -2pi to 2pi");
+ylabel("the values of the trignometric functions");
 
-plot(a, y);
-legend("x", "y" );
+plot(b, z);
+legend("y", "z" );
 
 hold off;
